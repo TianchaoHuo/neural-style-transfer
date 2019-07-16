@@ -13,7 +13,7 @@ In this example, we are going to generate an image of the Louvre museum in Paris
 
 ## Methodology
 
-You can refer to this blog:![bolog]=https://tianchaohuo.github.io/2019/07/16/Style-Transfer/, or directly refer to the paper[3] and the course[2]
+You can refer to this [bolog](https://tianchaohuo.github.io/2019/07/16/Style-Transfer/), or directly refer to the paper[3] and the course[2]
 
 ### Pre-trained neural networks
 It is known that CNN can capture the high level feature of images [3]. As shown in the following, content image is passed through the CNN and then the image representation can be obtained, feature mapping in other words and then almost can obtain the image similar to the originial after reconstructing.In particular, the results obtained by reconstruction of the first few layers are closer to the original image, and it also indicates that more details of the images are retained in the first few layers, because there is the pooling layer behind, so some information of tuning will be naturally discarded.
