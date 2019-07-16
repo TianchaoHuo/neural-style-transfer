@@ -36,8 +36,8 @@ This artical simply introduce the neural style transfer. We can learn that inste
 
 ## References
 
-[1] Neural style transfer, https://en.wikipedia.org/wiki/Neural_Style_Transfer
-[2] Andrew Ng, https://mooc.study.163.com/term/2001392030.htm
+[1] Neural style transfer, https://en.wikipedia.org/wiki/Neural_Style_Transfer</br>
+[2] Andrew Ng, https://mooc.study.163.com/term/2001392030.htm</br>
 [3] L. Gatys, A. Ecker and M. Bethge, "A Neural Algorithm of Artistic Style," Journal of Vision, vol. 16, (12), pp. 326, 2016.
 [4] VGG-19, https://www.researchgate.net/figure/llustration-of-the-network-architecture-of-VGG-19-model-conv-means-convolution-FC-means_fig2_325137356
 [5] zhuhai, https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1563285220753&di=bac7ad611650d54e5467b69c5db89a40&imgtype=0&src=http%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F4oialo8ibP6okPtUN4Jj4DQFm8xenjibPHtYv6wVFaRicqorp3ticzqYShD64ibbIOBVuRdMzU3OnGMlgVLI89AXpHFA%2F640%3Fwx_fmt%3Djpeg
