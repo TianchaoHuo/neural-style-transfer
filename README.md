@@ -12,49 +12,8 @@ In this example, we are going to generate an image of the Louvre museum in Paris
 <div align=center><img src = "Style-Transfer\objective.jpg"></div></br>
 
 ## Methodology
-For any neural model, it definitely has the cost function. Therefore, we define the cost function at the begining.
-### Cost function
-We have two main parts of the cost function[3]:
-- $J_{content}(C,G)$: this one is so-called content cost, which is related to the originial image(content image) and the generated image and is used to measure the similarity between the generated image and the content image.
-- $J_{style}(S,G)$: this one is named as style cost, realting to the style image and the generated image, which is target to value the similarity between the style image and the generated image.
 
-And then finally we put them together, so that we have:
-$$J(G)=\alpha J_{content}(C,G) + \beta J_{content}(S,G)$$
-$\alpha$ and $\beta$ are the hyperparameters.
-
-In order to generate a new image, we firstly need to randomly inital an image $G$ and then using gradient descent to reduce above cost function so that we can updating the
-$$
-G := G-\frac{\alpha}{\alpha G}J(G)
-$$
-This step is acutally updating values of image G, rather than the weight by convention in classification we did before. So the above is an abstract of neural style transfer. Now we dive more into the cost function and elaborate the hidden principle.
-
-#### Content cost function
-Now we want to test the similarity between the content image and the generated image. To achieve that, we suppose we have two activation values:$a^{[l][C]}$ and $a^{[l][G]}$. We would say if these two values are close to each other, then the image is similar to each other. So we define:
-$$
-J_{content}=\frac{1}{2}||a^{[l][C]}-a^{[l][G]}||^2
-$$
-It means that L2 norm of the difference of the values of particular $l$ layer of different images can represent the content similarity of two images.
-
-#### Style cost function
-We suppose that $a_{i,j,k}^{[l]}$ is  the activation value of the $l$ layer and $i,j,k$ represent height, width, and the number of channels. Now we are going to construct a style matrix, $G_{kk^{'}}^{[l][S]}$, which is the $n_c$ by $ n_c$ matrix for style image.
-Gram matrix (style matrix):
-$$
-G_{kk^{'}}^{[l][S]}=\sum_{i=1}^{n_H^{[l]}}\sum_{j=1}^{n_W^{[l]}}a_{i,j,k}^{[l][S]}a_{i,j,k^{'}}^{[l][S]}$$
-$k,k^{'}$ here denote the coefficient of association between $k$ channel and the $k{'}$ channel. So we just multiply these two activation value of the same position in corresponding channels and then $i$ and $j$ increase by the height and width respectively, which are $n_H^{[l]}$ and $n_W^{[l]}$
-Similarly, we do the same operation for the generated image, so that we have:
-$$
-G_{kk^{'}}^{[l][G]}=\sum_{i=1}^{n_H^{[l]}}\sum_{j=1}^{n_W^{[l]}}a_{i,j,k}^{[l][G]}a_{i,j,k^{'}}^{[l][G]}
-$$
-Then  we put them together to set up the style cost function:
-$$
-J_{style}(S,G)=\frac{1}{(2*n_H^l n_W^l n_c^l)^2}\sum_k \sum_{k^{'}}{||G_{kk^{'}}^{[l][S]}-G_{kk^{'}}^{[l][G]}||}_{F}^2
-$$
-So far we have captured the style from only one layer. We'll get better results if we "merge" style costs from several different layers. So we can have style weight matrix and then combine the style costs for different layers as follows:
-$$
-J_{style}(S,G) = \sum_{l} \lambda^{[l]} J^{[l]}_{style}(S,G)
-$$
-
-Right now we can compute the total cost function by using gradient descent method.
+You can refer to this blog:![bolog] https://tianchaohuo.github.io/2019/07/16/Style-Transfer/, or directly refer to the paper[3] and the course[2]
 
 ### Pre-trained neural networks
 It is known that CNN can capture the high level feature of images [3]. As shown in the following, content image is passed through the CNN and then the image representation can be obtained, feature mapping in other words and then almost can obtain the image similar to the originial after reconstructing.In particular, the results obtained by reconstruction of the first few layers are closer to the original image, and it also indicates that more details of the images are retained in the first few layers, because there is the pooling layer behind, so some information of tuning will be naturally discarded.
